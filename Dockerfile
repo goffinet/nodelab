@@ -12,8 +12,7 @@ RUN dnf install -y glibc-langpack-en openssh-server openssh-clients sudo && ssh-
 
 RUN useradd user && \
     echo "user  ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers && \
-    su -c "ssh-keygen -f ~/.ssh/id_rsa -N ''" - user && \
-    echo "user" | passwd --stdin user
+    su -c "ssh-keygen -f ~/.ssh/id_rsa -N ''" - user
 
 RUN systemctl enable sshd
 
